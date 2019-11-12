@@ -19,9 +19,8 @@ app.use(express.json());
 app.get('/api/todo', async(req, res) => {
     try {
         const result = await client.query(`
-        SELECT * FROM todo
-        VALUES ($1, $2, $3);`);
-        res.json(result.rows[0]);
+        SELECT * FROM todo;`);
+        res.json(result.rows);
     }
     catch (err){
         console.log(err + '' + 'Oh No!!!! AHHHHHHHHH! SIN SORROW AND SADNESS BEFALL YOU, YOU!');
