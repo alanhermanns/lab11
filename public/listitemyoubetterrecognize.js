@@ -6,9 +6,9 @@ export class ListItem extends Component {
         const itemData = this.props;
         const dom = /*html*/`
         <div> 
-            <li>${itemData.name}</li>
-            <li>${itemData.body}</li>
-            <li>${itemData.done}</li>
+            <li>I have to:${itemData.name}</li>
+            <li>I got to how?${itemData.body}</li>
+            <li>Have I?${itemData.done}</li>
         </div>
         `;
         return dom;
