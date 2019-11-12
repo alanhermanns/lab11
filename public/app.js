@@ -10,14 +10,14 @@ export class App extends Component {
 
         const header = new Header;
         const headerDOM = header.renderDOM();
-        document.prepend(headerDOM);
+        dom.prepend(headerDOM);
 
         
         const props = await getToDo();
         console.log(props);
         const mainList = new ToDoList(props);
         const mainListDOM = mainList.renderDOM();
-        document.appendChild(mainListDOM);
+        dom.appendChild(mainListDOM);
         
         const form = document.querySelector('form');
         form.addEventListener('submit', async(event) => {
@@ -34,6 +34,7 @@ export class App extends Component {
 
     renderHTML() {
         const dom = /*html*/ `
+        <div>
             <form>
                 <label>I definitely need to do, the wold be dammend and my soul condemned to cold black hell:</label>
                 <label>Name:</label>
@@ -42,6 +43,7 @@ export class App extends Component {
                 <input type = 'text' name = 'body'>
                 <button type = 'submit'>ADD</button>
             </form>
+        </div>
         `;
         return dom;
     }
