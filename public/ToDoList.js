@@ -1,7 +1,7 @@
 import Component from './component.js';
 import { ListItem } from './listItem.js';
 
-export class ToDoList extends Component {
+class ToDoList extends Component {
     onRender(dom){
         const theList = document.querySelector('.list');
         this.props.forEach((item) => {
@@ -18,3 +18,4 @@ export class ToDoList extends Component {
         return dom;
     }
 }
+export default ToDoList;
