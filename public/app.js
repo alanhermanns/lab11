@@ -10,13 +10,13 @@ export class App extends Component {
 
         const header = new Header;
         const headerDOM = header.renderDOM();
-        document.body.prepend(headerDOM);
+        dom.prepend(headerDOM);
 
         
         const props = await getToDo();
         const mainList = new ToDoList(props);
         const mainListDOM = mainList.renderDOM();
-        document.body.appendChild(mainListDOM);
+        dom.appendChild(mainListDOM);
         
         const form = document.querySelector('form');
         form.addEventListener('submit', async() => {
