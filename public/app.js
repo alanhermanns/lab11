@@ -23,8 +23,9 @@ export class App extends Component {
         form.addEventListener('submit', async(event) => {
             event.preventDefault();
             const formData = new FormData(form);
-            debugger
-            await addToDo(formData);
+            const name = formData.get(name);
+            const body = formData.get(body);
+            await addToDo(name, body);
             const newProps = await getToDo();
             mainList.update(newProps);
         });
@@ -36,9 +37,9 @@ export class App extends Component {
             <form>
                 <label>I definitely need to do, the wold be dammend and my soul condemned to cold black hell:</label>
                 <label>Name:</label>
-                <input type = 'text'>
+                <input type = 'text' name = 'name'>
                 <label>Description:</label>
-                <input type = 'text'>
+                <input type = 'text' name = 'body'>
                 <button type = 'submit'>ADD</button>
             </form>
         `;

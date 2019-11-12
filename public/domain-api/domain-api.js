@@ -8,14 +8,18 @@ export const getToDo = async() => {
 };
 
 
-export const addToDo = async(formData) => {
+export const addToDo = async(name, body) => {
     const url = `${URL}/todo`;
     const response = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+            name: name,
+            body: body,
+            done: false
+        })
     });
     const data = await response.json();
     return data;
