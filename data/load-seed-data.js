@@ -16,7 +16,7 @@ async function run() {
             todos.map(async todo => {
                 const result = await client.query(`
                     INSERT INTO todo (name, body, done)
-                    VALUES ($1 $2 $3)
+                    VALUES ($1, $2, $3)
                 `,
                 [todo.name, todo.body, todo.done]);
                 return result.rows[0];
