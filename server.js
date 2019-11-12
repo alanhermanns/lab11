@@ -15,3 +15,26 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
+
+app.post('/api/todo', async(req, res) => {
+    const newTodo = req.body;
+    try {
+        const result = await client.query(`
+        INSERT INTO buildings
+                (name,
+                 body,
+                 done)
+            VALUES($1, $2, $3)
+            RETURNING *;
+        `, 
+        [newTodo.name, newTodo.body, newTodo.done]);
+        res.json(result.rows[0]);
+    }
+    catch (err){
+        console.log(err);
+    }
+});
+
+app.listen(PORT, () => {
+    console.log('server running on port ' + PORT);
+});

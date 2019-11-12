@@ -15,11 +15,10 @@ async function run() {
         await Promise.all(
             todos.map(async todo => {
                 const result = await client.query(`
-                    INSERT INTO todo (todo)
-                    VALUES ($1)
-                    RETURNING *;
+                    INSERT INTO todo (name, body, done)
+                    VALUES ($1 $2 $3)
                 `,
-                [todo]);
+                [todo.name, todo.body, todo.done]);
                 return result.rows[0];
             })
         );

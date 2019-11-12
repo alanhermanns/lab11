@@ -24,6 +24,7 @@ async function run() {
             CREATE TABLE todo (
                 id SERIAL PRIMARY KEY NOT NULL,
                 name VARCHAR(256) NOT NULL,
+                body VARCHAR(256) NOT NULL,
                 done BOOLEAN NOT NULL DEFAULT false
             )
         `);
