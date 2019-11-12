@@ -23,8 +23,8 @@ export class App extends Component {
         form.addEventListener('submit', async(event) => {
             event.preventDefault();
             const formData = new FormData(form);
-            const name = formData.get(name);
-            const body = formData.get(body);
+            const name = formData.get('name');
+            const body = formData.get('body');
             await addToDo(name, body);
             const newProps = await getToDo();
             mainList.update(newProps);
