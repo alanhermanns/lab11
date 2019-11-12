@@ -17,7 +17,7 @@ export class App extends Component {
         console.log(props);
         const mainList = new ToDoList(props);
         const mainListDOM = mainList.renderDOM();
-        dom.appendChild(mainListDOM);
+        dom.append(mainListDOM);
         
         const form = document.querySelector('form');
         form.addEventListener('submit', async(event) => {
