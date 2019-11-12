@@ -1,5 +1,5 @@
 import Component from './component.js';
-import { ListItem } from './listItem.js';
+import { ListItem } from './listitemyoubetterrecognize.js';
 
 class ToDoList extends Component {
     onRender(dom){
