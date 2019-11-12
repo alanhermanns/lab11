@@ -1,6 +1,6 @@
 import Component from './component.js';
 import { Header } from './header.js';
-import { ToDoList } from './toDoList.js';
+import { ToDoList } from './todolist';
 import { addToDo } from './domain-api/domain-api.js';
 import { getToDo } from './domain-api/domain-api.js';
 
