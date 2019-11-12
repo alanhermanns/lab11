@@ -3,6 +3,9 @@ ul {
     justify-content: center;
     align-items: center;
     flex-wrap: flex;
-    width: 50%;
+    width: 100%;
     list-style: none;
 };
+.hidden{
+    display: none;
+}
