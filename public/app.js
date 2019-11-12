@@ -14,6 +14,7 @@ export class App extends Component {
 
         
         const props = await getToDo();
+        console.log(props);
         const mainList = new ToDoList(props);
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
