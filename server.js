@@ -39,7 +39,7 @@ app.post('/api/todo', async(req, res) => {
             RETURNING *;
         `, 
         [newTodo.name, newTodo.body, newTodo.done]);
-        res.json(result.rows[0]);
+        res.json(result.rows);
     }
     catch (err){
         console.log(err);
