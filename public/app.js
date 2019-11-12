@@ -32,8 +32,11 @@ export class App extends Component {
         const dom = /*html*/ `
             <form>
                 <label>I definitely need to do, the wold be dammend and my soul condemned to cold black hell:</label>
+                <label>Name:</label>
                 <input type = 'text'>
-                <button type = 'submit'>ADD<button>
+                <label>Description:</label>
+                <input type = 'text'>
+                <button type = 'submit'>ADD</button>
             </form>
         `;
         return dom;
