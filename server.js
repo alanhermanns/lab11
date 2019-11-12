@@ -20,7 +20,7 @@ app.post('/api/todo', async(req, res) => {
     const newTodo = req.body;
     try {
         const result = await client.query(`
-        INSERT INTO buildings
+        INSERT INTO todo
                 (name,
                  body,
                  done)
