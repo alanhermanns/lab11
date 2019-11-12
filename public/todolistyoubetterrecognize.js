@@ -3,8 +3,9 @@ import { ListItem } from './listitemyoubetterrecognize.js';
 
 class ToDoList extends Component {
     onRender(dom){
-        const theList = document.querySelector('.list');
+        const theList = dom.querySelector('.list');
         this.props.forEach((item) => {
+            console.log(item);
             const newListItem = new ListItem(item);
             const newListItemDOM = newListItem.renderDOM();
             theList.appendChild(newListItemDOM);
