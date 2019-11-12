@@ -20,7 +20,7 @@ app.get('/api/todo', async(req, res) => {
     try {
         const result = await client.query(`
         SELECT * FROM todo
-        VALUES ($1, $2, $3)`);
+        VALUES ($1, $2, $3);`);
         res.json(result.rows);
     }
     catch (err){
