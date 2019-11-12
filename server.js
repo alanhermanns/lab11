@@ -16,6 +16,18 @@ app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
+app.get('/api/todo', async(req, res) => {
+    try {
+        const result = await client.query(`
+        SELECT * FROM todo
+        VALUES ($1, $2, $3)`);
+        res.json(result.rows);
+    }
+    catch (err){
+        console.log(err + '' + 'Oh No!!!! AHHHHHHHHH! SIN SORROW AND SADNESS BEFALL YOU, YOU!');
+    }
+});
+
 app.post('/api/todo', async(req, res) => {
     const newTodo = req.body;
     try {
