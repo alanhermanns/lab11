@@ -23,6 +23,7 @@ export class App extends Component {
         form.addEventListener('submit', async(event) => {
             event.preventDefault();
             const formData = new FormData(form);
+            debugger
             await addToDo(formData);
             const newProps = await getToDo();
             mainList.update(newProps);
