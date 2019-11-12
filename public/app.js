@@ -20,7 +20,8 @@ export class App extends Component {
         dom.appendChild(mainListDOM);
         
         const form = document.querySelector('form');
-        form.addEventListener('submit', async() => {
+        form.addEventListener('submit', async(event) => {
+            event.preventDefault();
             const formData = new FormData(form);
             await addToDo(formData);
             const newProps = await getToDo();
