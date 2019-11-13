@@ -28,7 +28,7 @@ export const addToDo = async(name, body) => {
 export const deleteToDo = async(id) => {
     const url = `${URL}/todo/:${id}`;
     const response = await fetch(url, {
-        method: 'delete'
+        method: 'DELETE'
     });
     const data = await response.json();
     return data;
