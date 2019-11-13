@@ -6,10 +6,11 @@ export class ListItem extends Component {
         const doneButton = dom.querySelector('.done');
         //const oneToDo = dom.querySelector('.thing-to-do');
         doneButton.addEventListener('click', () => {
-            const queryString = window.location + '/?';
+            const queryString = window.location.hash.slice(1);
             const queryParams = new URLSearchParams(queryString);
             const id = event.target.value;
             queryParams.set('id', id);
+            window.location.hash = queryParams.toString();
         });            
         
     }
