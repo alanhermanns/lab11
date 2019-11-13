@@ -12,10 +12,10 @@ export class App extends Component {
         const headerDOM = header.renderDOM();
         dom.prepend(headerDOM);
 
-        
+        const state = this.state;
         const props = await getToDo();
         console.log(props);
-        const mainList = new ToDoList(props);
+        const mainList = new ToDoList(props, state);
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
         
@@ -25,7 +25,8 @@ export class App extends Component {
             const formData = new FormData(form);
             const name = formData.get('name');
             const body = formData.get('body');
-            await addToDo(name, body);
+            const newToDoThing = await addToDo(name, body);
+            this.state.push(newToDoThing.id);
             const newProps = await getToDo();
             mainList.update(newProps);
         });

@@ -24,3 +24,12 @@ export const addToDo = async(name, body) => {
     const data = await response.json();
     return data;
 };
+
+export const deleteToDo = async(id) => {
+    const url = `${URL}/todo/:${id}`;
+    const response = await fetch(url, {
+        method: 'delete'
+    });
+    const data = await response.json();
+    return data;
+};

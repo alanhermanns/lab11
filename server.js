@@ -26,6 +26,17 @@ app.get('/api/todo', async(req, res) => {
         console.log(err + '' + 'Oh No!!!! AHHHHHHHHH! SIN SORROW AND SADNESS BEFALL YOU, YOU!');
     }
 });
+app.delete('/api/todo/?:id', async(req, res) => {
+    const id = URLSearchParams.id;
+    try {
+        const result = await client.query(`
+        DELETE ${id} FROM todo;`);
+        res.json(result.rows);
+    }
+    catch (err){
+        console.log(err + '' + 'Oh No!!!! AHHHHHHHHH! SIN SORROW AND SADNESS BEFALL YOU, YOU!');
+    }
+});
 
 app.post('/api/todo', async(req, res) => {
     const newTodo = req.body;
