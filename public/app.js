@@ -12,10 +12,14 @@ export class App extends Component {
         const headerDOM = header.renderDOM();
         dom.prepend(headerDOM);
 
-        const state = this.state;
-        const props = await getToDo();
-        console.log(props);
-        const mainList = new ToDoList(props, state);
+        //const state = this.state;
+
+        this.props.data = await getToDo();
+        console.log(this.props.data);
+        
+        const mainList = new ToDoList(this.props.data, this.props.bigArr);
+        debugger
+        this.state.push(this.props.data);
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
         
@@ -26,7 +30,9 @@ export class App extends Component {
             const name = formData.get('name');
             const body = formData.get('body');
             const newToDoThing = await addToDo(name, body);
-            this.state.push(newToDoThing.id);
+            this.state.push(newToDoThing);
+            console.log(this.state);
+            
             const newProps = await getToDo();
             mainList.update(newProps);
         });

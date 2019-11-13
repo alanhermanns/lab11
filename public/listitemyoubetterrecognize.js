@@ -1,18 +1,15 @@
 import Component from './component.js';
-import { deleteToDo } from './domain-api/domain-api.js';
+//import { deleteToDo } from './domain-api/domain-api.js';
 export class ListItem extends Component {
     onRender(dom){
-        const state = this.props.state;
+        //const state = this.state;
         const doneButton = dom.querySelector('.done');
-        const oneToDo = dom.querySelector('.thing-to-do');
-        oneToDo.nodeValue = state;
+        //const oneToDo = dom.querySelector('.thing-to-do');
         doneButton.addEventListener('click', () => {
             const queryString = window.location;
             const queryParams = new URLSearchParams(queryString);
             const id = event.target.value;
             queryParams.set('id', id);
-
-            deleteToDo(id);
         });            
         
     }
