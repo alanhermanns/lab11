@@ -1,7 +1,7 @@
 import Component from './component.js';
 import { Header } from './header.js';
 import ToDoList from './todolistyoubetterrecognize.js';
-import { addToDo } from './domain-api/domain-api.js';
+import { addToDo, deleteToDo } from './domain-api/domain-api.js';
 import { getToDo } from './domain-api/domain-api.js';
 
 export class App extends Component {
@@ -29,11 +29,20 @@ export class App extends Component {
             const name = formData.get('name');
             const body = formData.get('body');
             const newToDoThing = await addToDo(name, body);
-            this.state.push(newToDoThing);
-            console.log(this.state);
+            //this.state.push(newToDoThing);
+            //console.log(this.state);
             
             const newProps = await getToDo();
             mainList.update(newProps);
+
+            window.addEventListener('hashchange', async() => {
+                const queryParams = window.location.hash.slice(1);
+                const params = new URLSearchParams(queryParams);
+                const id = params.get('id');
+                deleteToDo(id);
+                const newProps = await getToDo();
+                mainList.update(newProps);
+            });
         });
 
     }
