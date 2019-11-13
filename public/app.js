@@ -46,7 +46,8 @@ export class App extends Component {
             const params = new URLSearchParams(queryParams);
             const id = params.get('id');
             deleteToDo(id);
-            const newProps = await getToDo();
+            //const newProps = await getToDo();
+            const newProps = this.state;
             mainList.update(newProps);
         });
 
