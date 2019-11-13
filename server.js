@@ -27,7 +27,7 @@ app.get('/api/todo', async(req, res) => {
     }
 });
 app.delete('/api/todo/?:id', async(req, res) => {
-    const id = URLSearchParams.id;
+    const id = req.params.id;
     try {
         const result = await client.query(`
         DELETE ${id} FROM todo;`);
