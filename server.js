@@ -32,6 +32,7 @@ app.delete('/api/todo/:id', async(req, res) => {
         const result = await client.query(`
         DELETE FROM todo
         WHERE id = ${id}
+        RETURNING *
         ;`);
         res.json(result.rows);
     }

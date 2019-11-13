@@ -18,7 +18,7 @@ export class App extends Component {
         console.log(this.props.data);
         
         const mainList = new ToDoList(this.props.data);
-        //this.state.push(Object.keys(this.props.data));
+        this.state = mainList.state;
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
         debugger
