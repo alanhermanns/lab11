@@ -26,11 +26,14 @@ app.get('/api/todo', async(req, res) => {
         console.log(err + '' + 'Oh No!!!! AHHHHHHHHH! SIN SORROW AND SADNESS BEFALL YOU, YOU!');
     }
 });
-app.delete('/api/todo/?:id', async(req, res) => {
+app.delete('/api/todo/:id', async(req, res) => {
     const id = req.params.id;
     try {
         const result = await client.query(`
-        DELETE ${id} FROM todo;`);
+        DELETE FROM todo
+        WHERE id = ${id}
+        RETURNING *
+        ;`);
         res.json(result.rows);
     }
     catch (err){
@@ -56,6 +59,7 @@ app.post('/api/todo', async(req, res) => {
         console.log(err);
     }
 });
+
 
 app.listen(PORT, () => {
     console.log('server running on port ' + PORT);
