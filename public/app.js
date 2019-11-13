@@ -29,8 +29,9 @@ export class App extends Component {
             const name = formData.get('name');
             const body = formData.get('body');
             const newToDoThing = await addToDo(name, body);
-            //this.state.push(newToDoThing);
-            //console.log(this.state);
+            this.state.newToDoThing = newToDoThing.id;
+            this.state[newToDoThing] = newToDoThing;
+            console.log(this.state);
             
             const newProps = await getToDo();
             mainList.update(newProps);
