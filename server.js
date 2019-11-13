@@ -26,7 +26,7 @@ app.get('/api/todo', async(req, res) => {
         console.log(err + '' + 'Oh No!!!! AHHHHHHHHH! SIN SORROW AND SADNESS BEFALL YOU, YOU!');
     }
 });
-app.delete('/api/todo/id', async(req, res) => {
+app.delete('/api/todo/:id', async(req, res) => {
     const id = req.params.id;
     try {
         const result = await client.query(`
