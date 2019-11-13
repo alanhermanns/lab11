@@ -35,14 +35,16 @@ export class App extends Component {
             const newProps = await getToDo();
             mainList.update(newProps);
 
-            window.addEventListener('hashchange', async() => {
-                const queryParams = window.location.hash.slice(1);
-                const params = new URLSearchParams(queryParams);
-                const id = params.get('id');
-                deleteToDo(id);
-                const newProps = await getToDo();
-                mainList.update(newProps);
-            });
+        });
+
+        window.addEventListener('hashchange', async() => {
+            debugger
+            const queryParams = window.location.hash.slice(1);
+            const params = new URLSearchParams(queryParams);
+            const id = params.get('id');
+            deleteToDo(id);
+            const newProps = await getToDo();
+            mainList.update(newProps);
         });
 
     }
