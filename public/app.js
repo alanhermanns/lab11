@@ -44,7 +44,7 @@ export class App extends Component {
             const queryParams = window.location.hash.slice(1);
             const params = new URLSearchParams(queryParams);
             const id = params.get('id');
-            deleteToDo(id);
+            await deleteToDo(id);
             delete this.state[id];
             //const newProps = await getToDo();
             const newProps = this.state;
