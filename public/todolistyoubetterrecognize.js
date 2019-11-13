@@ -5,7 +5,7 @@ class ToDoList extends Component {
     onRender(dom){
         //const theList = dom.querySelector('.list');
         const state = this.props.state;
-        this.props.props.forEach((item) => {
+        this.props.forEach((item) => {
             console.log(item);
             const newListItem = new ListItem(item, state);
             const newListItemDOM = newListItem.renderDOM();
