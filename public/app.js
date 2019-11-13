@@ -48,7 +48,7 @@ export class App extends Component {
             delete this.state[id];
             //const newProps = await getToDo();
             const newProps = this.state;
-            mainList.update({ newProps });
+            mainList.update(newProps);
         });
 
     }
