@@ -29,11 +29,11 @@ export class App extends Component {
             const name = formData.get('name');
             const body = formData.get('body');
             const newToDoThing = await addToDo(name, body);
-            this.state.newToDoThing = newToDoThing.id;
-            this.state[newToDoThing] = newToDoThing;
+            //this.state.newToDoThing.id = newToDoThing.id;
+            this.state[newToDoThing.id] = newToDoThing;
             console.log(this.state);
-            
-            const newProps = await getToDo();
+            const newProps = this.state;
+            //const newProps = await getToDo();
             mainList.update(newProps);
 
         });
