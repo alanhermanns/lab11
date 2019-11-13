@@ -41,7 +41,6 @@ export class App extends Component {
         });
 
         window.addEventListener('hashchange', async() => {
-            debugger
             const queryParams = window.location.hash.slice(1);
             const params = new URLSearchParams(queryParams);
             const id = params.get('id');
@@ -49,7 +48,7 @@ export class App extends Component {
             delete this.state[id];
             //const newProps = await getToDo();
             const newProps = this.state;
-            mainList.update(newProps);
+            mainList.update({ props: newProps });
         });
 
     }
