@@ -19,7 +19,7 @@ export class App extends Component {
         
         const mainList = new ToDoList(this.props.data, this.props.bigArr);
         debugger
-        this.state.push(this.props.data);
+        this.state.push(Object.keys(this.props.data));
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
         
