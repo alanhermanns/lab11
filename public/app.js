@@ -17,12 +17,11 @@ export class App extends Component {
         this.props.data = await getToDo();
         console.log(this.props.data);
         
-        const mainList = new ToDoList(this.props.data, this.props.bigArr);
-        debugger
-        this.state.push(Object.keys(this.props.data));
+        const mainList = new ToDoList(this.props.data);
+        //this.state.push(Object.keys(this.props.data));
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
-        
+        debugger
         const form = document.querySelector('form');
         form.addEventListener('submit', async(event) => {
             event.preventDefault();
