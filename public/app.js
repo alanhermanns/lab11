@@ -33,8 +33,8 @@ export class App extends Component {
             this.state[newToDoThing.id] = newToDoThing;
             console.log(this.state);
             const newProps = this.state;
-            const list = document.querySelector('ul');
-            list.remove();
+            // const list = document.querySelector('ul');
+            // list.child();
             //const newProps = await getToDo();
             mainList.update(newProps);
 
