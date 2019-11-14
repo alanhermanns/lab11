@@ -5,7 +5,7 @@ export class ListItem extends Component {
         //const state = this.state;
         const doneButton = dom.querySelector('.done');
         //const oneToDo = dom.querySelector('.thing-to-do');
-        doneButton.addEventListener('click', () => {
+        doneButton.addEventListener('click', (event) => {
             const queryString = window.location.hash.slice(1);
             const queryParams = new URLSearchParams(queryString);
             const id = event.target.value;

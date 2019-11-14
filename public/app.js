@@ -45,17 +45,21 @@ export class App extends Component {
             const params = new URLSearchParams(queryParams);
             const id = params.get('id');
             await deleteToDo(id);
-            delete this.state[id];
+            const madProps = Object.values(this.state);
+            console.log(this.state[id]);
+            console.log(madProps.indexOf(this.state[id]));
+            madProps.splice(madProps.indexOf(this.state[id]), 1);
+            
             //const newProps = await getToDo();
-            const newProps = this.state;
+            //const newProps = (Object.values(this.state[id]));
             //this.state = mainList.state;
             //this.props.data = newProps;
             //const newToDos = this.props.data;
-            let interProps = Object.values(newProps);
 
-            console.log('newProps', newProps);
-            interProps.splice(interProps.length - 1, 1);
-            mainList.update(interProps);
+            this.state = madProps;
+            console.log('newerProps', madProps);
+            madProps.splice(madProps.length - 1, 1);
+            mainList.update(madProps);
         });
 
     }
