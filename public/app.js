@@ -50,7 +50,7 @@ export class App extends Component {
             const newProps = this.state;
             this.props.data = newProps;
             const newToDos = this.props.data;
-            mainList.update([newToDos]);
+            mainList.update(newToDos);
         });
 
     }
