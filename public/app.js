@@ -14,14 +14,12 @@ export class App extends Component {
 
         //const state = this.state;
 
-        this.props.data = await getToDo();
-        console.log(this.props.data);
+        const todos = await getToDo();
         
-        const mainList = new ToDoList(this.props.data);
+        const mainList = new ToDoList(todos);
         this.state = mainList.state;
         const mainListDOM = mainList.renderDOM();
         dom.appendChild(mainListDOM);
-        debugger
         const form = document.querySelector('form');
         form.addEventListener('submit', async(event) => {
             event.preventDefault();
@@ -36,7 +34,9 @@ export class App extends Component {
             // const list = document.querySelector('ul');
             // list.child();
             //const newProps = await getToDo();
-            mainList.update(newProps);
+            let interProps = Object.values(newProps);
+            (interProps).splice(interProps.length - 1, 1);
+            mainList.update(interProps);
 
         });
 
@@ -48,9 +48,14 @@ export class App extends Component {
             delete this.state[id];
             //const newProps = await getToDo();
             const newProps = this.state;
-            this.props.data = newProps;
-            const newToDos = this.props.data;
-            mainList.update(newToDos);
+            //this.state = mainList.state;
+            //this.props.data = newProps;
+            //const newToDos = this.props.data;
+            let interProps = Object.values(newProps);
+
+            console.log('newProps', newProps);
+            interProps.splice(interProps.length - 1, 1);
+            mainList.update(interProps);
         });
 
     }
